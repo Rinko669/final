@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: lightslategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.name {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 19px;
+  color: black;
+  text-decoration: none;
+  margin-left: 10px;
+  justify-content: center;
+  margin-right: 80px;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+/*start*/
+
+section {
+  padding: 0px 12%;
+  padding-top: 150px;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-text {
+  max-width: 520px;
+}
+
+.home .home-text img {
+  width: 35px;
+  height: 45px;
+  position: relative;
+  top: 7px;
+}
+
+.home h1 {
+  font-size: 60px;
+  line-height: 70px;
+}
+
+.home h3 {
+  font-size: 22px;
+}
+
+.home h5 {
+  font-size: 30px;
+  color: orangered;
+}
+
+.home p {
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.home-img {
+  display: flex;
+  justify-content: flex-end;
+  width: 800px;
+  height: 500px;
+  margin-bottom: 20px;
+  /* Adjust the value as needed */
+  margin-right: 50px;
+  /* Adjust the value as needed */
+  margin-left: 100px;
+}
+
+.home-img img {
+  height: 100%;
+  z-index: 1;
+  right: -40px;
+}
+
+.home-img {
+  position: relative;
+}
+
+.home-img img {
+  position: relative;
+  /* Make sure the image is positioned relative to its parent */
+  z-index: 1;
+  /* Ensure the image is above the SVG */
+}
+
+.home-img svg {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Set a lower z-index to position the SVG behind the image */
+}
+/*end*/
+
+/* css for section 2 */
+h5 {
+  font-size: 24px;
+  /* Adjust this value as needed to make the heading larger */
+  /* Additional styling to match your design */
+  font-weight: bold;
+}
+
+.section2 {
+  text-align: center;
+}
+
+.subsection {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.text {
+  flex-basis: 45%;
+}
+
+.text-right {
+  order: 2;
+}
+
+.image {
+  flex-basis: 45%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  /* Adjust this value as needed to make the edges rounded */
+}
+
+.intro-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: blue;
+  /* Change 'blue' to your desired color */
+  text-decoration-thickness: 2px;
+  /* Adjust thickness as needed */
+}
+
+/*ends */
+
+/* section 3 css */
+.library-deployment h5 {
+  text-align: center;
+  font-size: 24px;
+  /* Adjust size as needed */
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* Adds space below the title */
+}
+
+.library-deployment .images {
+  display: flex;
+  justify-content: space-around;
+  /* Distributes space evenly around images */
+  margin-bottom: 20px;
+  /* Adds space below the images */
+}
+.library-deployment .images img {
+  width: 30%; /* Adjust based on preference and screen size */
+  height: auto; /* Keeps the aspect ratio of the images */
+  border-radius: 10px; /* Optional: Adds rounded corners to images */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.library-deployment .images img:hover {
+  transform: scale(1.1); /* Adjust scale value as needed */
+  cursor: pointer; /* Changes the cursor to indicate clickable (optional for hover effect) */
+}
+
+
+.library-deployment p {
+  text-align: center;
+  /* Centers the paragraph text */
+  max-width: 80%;
+  /* Adjust as needed */
+  margin: 0 auto;
+  /* Centers the paragraph block horizontally */
+  line-height: 1.5;
+  /* Adjusts spacing between lines of text */
+  padding-top: 10px;
+  /* Adds space inside the top of the paragraph */
+  padding-bottom: 10px;
+  /* Adds space inside the bottom of the paragraph */
+}
+
+/*ends*/
+
+/*footer */
+.footer {
+  background-color: lightgray; /* Light grey background */
+  color: black; /* Dark grey text */
+  text-align: center; /* Centers the text */
+  padding: 10px 0; /* 20px padding at the top and bottom */
+  margin-top: 40px; /* Adds space between the content and the footer */
+}
+
+.footer a {
+  color: #007bff; /* Bootstrap default link color */
+  text-decoration: none; /* No underline */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+/*ends*/
+
+ /* Pre-loader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+   .disabled-link {
+    color: gray; /* Makes the link color gray to appear disabled */
+    cursor: default; /* Changes the cursor to the default to avoid the pointer hand */
+    text-decoration: none; /* Removes underline to further imply it's not clickable */
+    pointer-events: none; /* Prevents all click actions */
+}

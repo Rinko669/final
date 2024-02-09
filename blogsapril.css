@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-content {
+    padding-top: 70px; /* Provides space at the top for the navbar */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: lightslategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.name {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 19px;
+  color: black;
+  text-decoration: none;
+  margin-left: 10px;
+  justify-content: center;
+  margin-right: 80px;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+/*ends*/
+
+/*start*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: #f4f4f4;
+padding-top: 60px; /* Adjusted to avoid overlap with the fixed header */
+  z-index: 50;
+display: flex;
+  flex-direction: column;
+  justify-content: start; /* Align items to start to keep the links at the top */
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
+  color: black;
+  padding: 30px; /* Adjust padding as needed */
+  text-decoration: none;
+  font-size: 18px;
+  height: 5s0px; /* Adjust height as needed to ensure enough space for centering */
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+
+body {
+  padding-left: 200px; /* Make space for the sidebar */
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100px;
+    padding-top: 20px;
+  }
+
+  .sidebar a { font-size: 14px; }
+
+  body {
+    padding-left: 100px;
+  }
+}
+
+.sidebar a.active {
+    color: white; /* Text color */
+    background-color: red; /* Background color */
+}
+
+.sidebar a:not(.active):hover {
+    background-color: #ddd; /* Hover effect for non-active links */
+}
+/*ends*/
+
+/* Grid layout for days with increased cell size for a larger appearance */
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 60px); /* Increased cell size */
+    gap: 5px; /* Increased gap for better spacing */
+}
+
+/* Adjustments to the .calendar container for centering and aesthetics */
+.calendar {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: fit-content; /* Ensures it adjusts to content size while allowing centering */
+    display: block; /* Use block display for auto margins to work */
+}
+
+/* Enhancements to the month label for better visibility */
+.month {
+    text-align: center;
+    margin-bottom: 20px; /* Increased spacing */
+    font-size: 28px; /* Larger font size */
+    font-weight: bold;
+}
+
+/* Unified grid layout for weekdays and days for consistent alignment */
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 60px); /* Consistent with days for alignment */
+    justify-content: center;
+    gap: 5px; /* Consistent with days for alignment */
+}
+
+/* Styling for individual day cells and weekday labels */
+.weekdays div, .days div {
+    border: 1px solid #ddd;
+    width: 60px; /* Increased for larger cells */
+    height: 60px; /* Increased for larger cells */
+    line-height: 60px; /* Adjusted for vertical centering */
+    text-align: center;
+    font-size: 16px; /* Increased font size for better readability */
+}
+
+/* Hiding borders for initial empty divs used for alignment at the start of the month */
+.days div:first-child {
+    border: none; /* Hide border for April as it starts on Monday */
+}
+
+.days div a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 60px; /* Adjust based on your day cell height */
+    text-align: center;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color from parent */
+}
+
+.days div a.active, .days .active1, .days .active2 {
+    /* Styles for active links; you can define these classes based on your event styling needs */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Adjusting sidebar overlap */
+    }
+
+    /* Adjusting grid for smaller screens */
+    .calendar, .weekdays, .days {
+        grid-template-columns: repeat(7, 50px); /* Slightly smaller cells for small screens */
+    }
+
+    .weekdays div, .days div {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px; /* Adjusted font size for smaller cells */
+    }
+}
+
+/* Optional: Add hover effect for all links */
+.days div a:hover {
+    background-color: #e0f0ff; /* Lighter shade for hover, adjust as needed */
+}
+
+/* legend */
+.legend {
+    margin-top: 20px; /* Adjust as needed */
+    padding: 10px;
+    background-color: #f9f9f9; /* Similar to the calendar for consistency */
+    border-radius: 8px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legend h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.legend-block {
+    width: 50px; /* Adjust width as necessary */
+    height: 20px; /* Adjust height as necessary */
+    background-color: lightblue;
+    margin-bottom: 10px;
+}
+
+.legend-block1{
+    width: 50px; /* Adjust width as necessary */
+    height: 20px; /* Adjust height as necessary */
+    background-color: red;
+    margin-bottom: 10px;
+}
+.legend-block2{
+    width: 50px; /* Adjust width as necessary */
+    height: 20px; /* Adjust height as necessary */
+    background-color: greenyellow;
+    margin-bottom: 10px;
+}
+
+/*footer */
+.footer {
+  background-color: lightgray; /* Light grey background */
+  color: black; /* Dark grey text */
+  text-align: center; /* Centers the text */
+  padding: 10px 0; /* 20px padding at the top and bottom */
+  margin-top: 40px; /* Adds space between the content and the footer */
+}
+
+.footer a {
+  color: #007bff; /* Bootstrap default link color */
+  text-decoration: none; /* No underline */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+/*ends*/
