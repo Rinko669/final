@@ -85,9 +85,7 @@ display: flex;
   background-color: #ddd;
 }
 
-body {
-  padding-left: 200px; /* Make space for the sidebar */
-}
+
 
 @media screen and (max-width: 600px) {
   .sidebar {
@@ -97,10 +95,18 @@ body {
 
   .sidebar a { font-size: 14px; }
 
-  body {
-    padding-left: 100px;
-  }
 }
+@media screen and (max-width: 600px) {
+    .sidebar, .right-sidebar {
+        width: 100px;
+    }
+
+    body {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
 
 .sidebar a.active {
     color: white; /* Text color */
@@ -280,3 +286,6 @@ body {
     text-decoration: none; /* Removes underline to further imply it's not clickable */
     pointer-events: none; /* Prevents all click actions */
 }
+
+
+
