@@ -9,6 +9,8 @@
 
 .main-content {
     padding-top: 70px; /* Provides space at the top for the navbar */
+     padding-left: 100px; /* Adjust if keeping the legend sidebar on the left */
+        padding-right: 100px; /* Adjust for right-aligned main sidebar in small screens */
 }
 
 .header {
@@ -149,7 +151,7 @@ display: flex;
     display: grid;
     grid-template-columns: repeat(7, 60px); /* Consistent with days for alignment */
     justify-content: center;
-    gap: 5px; /* Consistent with days for alignment */
+    gap: 8px; /* Consistent with days for alignment */
 }
 
 /* Styling for individual day cells and weekday labels */
@@ -186,7 +188,6 @@ display: flex;
 .days .active2 {
     background-color: greenyellow; /* Background color for active links */
 }
-
 
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
@@ -253,13 +254,20 @@ display: flex;
   background-color: lightgray; /* Light grey background */
   color: black; /* Dark grey text */
   text-align: center; /* Centers the text */
-  padding: 10px 0; /* 20px padding at the top and bottom */
+  padding: 30px 0; /* 20px padding at the top and bottom */
   margin-top: 40px; /* Adds space between the content and the footer */
 }
+/*footer end */
 
 .footer a {
   color: #007bff; /* Bootstrap default link color */
   text-decoration: none; /* No underline */
+  left: 20px;
+}
+
+.footer p {
+    margin: 5px 0; /* Adds a little space between paragraphs */
+    font-size: 16px; /* Adjust font size as needed */
 }
 
 .footer a:hover {
@@ -289,3 +297,27 @@ display: flex;
 
 
 
+.legend-sidebar {
+    position: fixed;
+    right: 200px; /* Adjust this value based on the width of your original sidebar */
+    top: 0;
+    width: 200px; /* Adjust based on your preference */
+    height: 100%;
+    background: #f4f4f4;
+    padding-top: 80px;
+    z-index: 50;
+    overflow: auto; /* Enables scrolling if the content is taller than the screen */
+    right: 0;
+    top: 0;
+}
+
+.legend-sidebar h2, .legend-sidebar p {
+    padding: 0 30px; /* Adds some padding around text */
+}
+
+.legend-block, .legend-block1, .legend-block2 {
+    width: 30px; /* Adjust based on your preference */
+    height: 20px;
+    margin: 10px 0;
+    margin-left: 10px; /* Aligns blocks with the text */
+}

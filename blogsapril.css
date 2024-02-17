@@ -9,6 +9,8 @@
 
 .main-content {
     padding-top: 70px; /* Provides space at the top for the navbar */
+     padding-left: 100px; /* Adjust if keeping the legend sidebar on the left */
+        padding-right: 100px; /* Adjust for right-aligned main sidebar in small screens */
 }
 
 .header {
@@ -239,16 +241,73 @@ body {
   background-color: lightgray; /* Light grey background */
   color: black; /* Dark grey text */
   text-align: center; /* Centers the text */
-  padding: 10px 0; /* 20px padding at the top and bottom */
+  padding: 30px 0; /* 20px padding at the top and bottom */
   margin-top: 40px; /* Adds space between the content and the footer */
 }
 
 .footer a {
   color: #007bff; /* Bootstrap default link color */
   text-decoration: none; /* No underline */
+  left: 20px;
+}
+
+.footer p {
+    margin: 5px 0; /* Adds a little space between paragraphs */
+    font-size: 16px; /* Adjust font size as needed */
 }
 
 .footer a:hover {
   text-decoration: underline; /* Underline on hover */
 }
 /*ends*/
+
+.legend-sidebar h2, .legend-sidebar p {
+    padding: 0 30px; /* Adds some padding around text */
+}
+
+.legend-block, .legend-block1, .legend-block2 {
+    width: 30px; /* Adjust based on your preference */
+    height: 20px;
+    margin: 10px 0;
+    margin-left: 10px; /* Aligns blocks with the text */
+}
+
+
+.legend-sidebar {
+    position: fixed;
+    right: 200px; /* Adjust this value based on the width of your original sidebar */
+    top: 0;
+    width: 200px; /* Adjust based on your preference */
+    height: 100%;
+    background: #f4f4f4;
+    padding-top: 80px;
+    z-index: 50;
+    overflow: auto; /* Enables scrolling if the content is taller than the screen */
+    right: 0;
+    top: 0;
+}
+
+.legend-sidebar h2, .legend-sidebar p {
+    padding: 0 30px; /* Adds some padding around text */
+}
+
+.legend-block, .legend-block1, .legend-block2 {
+    width: 30px; /* Adjust based on your preference */
+    height: 20px;
+    margin: 10px 0;
+    margin-left: 10px; /* Aligns blocks with the text */
+}
+
+ /* Pre-loader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }

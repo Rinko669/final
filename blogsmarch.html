@@ -10,6 +10,10 @@
 <link rel="shortcut icon" type="image/jpg" href="./photos/ojt.png" />
 <link rel="stylesheet" href="blogsmarch.css">
 <body>
+   <div class="preloader">
+        <img src="./photos/genshin-impact-amber.gif" alt="Loading...">
+    </div>
+
      <!--navbar starts-->
     <header class="header">
         <a href="#" class="name">Ian Chester Bufete</a>
@@ -30,6 +34,15 @@
         <a href="#"class="active">March</a>
         <a href="blogsapril.html">April</a>
         <a href="blogsmay.html">May</a>
+    </div>
+        <div class="legend-sidebar">
+        <h2>Legend</h2>
+        <div class="legend-block"></div>
+        <p>This light blue block represents active days where I work for my OJT.(click for more)</p>
+        <div class="legend-block1"></div>
+        <p>This red block represents holidays, no classes, or suspended.</p>
+        <div class="legend-block2"></div>
+        <p>This green yellow block represents Sunday. (No work)</p>
     </div>
     <!-- Sidebar ends -->
  
@@ -87,15 +100,6 @@
     </div>
 </div>
 
- <div class="legend">
-    <h2>Legend</h2>
-    <div class="legend-block"></div>
-    <p>This light blue block represents active days where I work for my OJT.(click for more)</p>
-    <div class="legend-block1"></div>
-    <p>This red block represents holidays, no classes, or suspended.</p>
-    <div class="legend-block2"></div>
-    <p>This green yellow block represents Sunday. (No work)</p>
-</div>
 
 <!-- Footer starts -->
 <footer class="footer">
@@ -104,6 +108,16 @@
         <p>Contact information: <a href="#">imailisa10@gmail.com</a>.</p>
     </div>
 </footer>
+   <script>
+        window.addEventListener('load', function () {
+            // Delay in milliseconds
+            const delay = 1000; // 3 seconds
 
+            setTimeout(function () {
+                const preloader = document.querySelector('.preloader');
+                preloader.style.display = 'none';
+            }, delay);
+        });
+    </script>
 </body>
 </html>
