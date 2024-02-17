@@ -269,3 +269,139 @@ img {
     text-decoration: none; /* Removes underline to further imply it's not clickable */
     pointer-events: none; /* Prevents all click actions */
 }
+/* Toggle Button */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle .hamburger {
+    width: 30px;
+    height: 2px;
+    background: black;
+    display: block;
+    position: relative;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    content: "";
+    background: black;
+    width: 30px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar a {
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Active Navbar Style */
+.navbar.active {
+    display: flex;
+}
+
+.nav-toggle.is-active .hamburger {
+    transform: rotate(45deg);
+}
+.nav-toggle.is-active .hamburger::before {
+    transform: rotate(-90deg) translate(-10px, 0);
+}
+.nav-toggle.is-active .hamburger::after {
+    transform: rotate(-90deg) translate(-10px, -16px);
+}
+@media (max-width: 768px) {
+  .home-img, .home-text, .section2 .subsection, .library-deployment .images img {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .home {
+    flex-direction: column;
+  }
+
+  .subsection {
+    flex-direction: column;
+  }
+
+  .text, .image {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .navbar a {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  section {
+    padding: 10px;
+  }
+
+  .home h1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  .home h3, .home h5 {
+    font-size: 18px;
+  }
+
+  .library-deployment .images {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column; /* Stacks the text and image vertically on smaller screens */
+        align-items: center; /* Centers the content horizontally */
+    }
+
+    .home-img {
+        width: 100%; /* Adjusts the container width to fit smaller screens */
+        margin: 20px 0; /* Adds some space above and below the image */
+    }
+.home-img img {
+    display: block; /* Makes the image a block-level element */
+    margin: 0 auto; /* Centers the image */
+    position: relative; /* Allows for position adjustments */
+    left: -10px; /* Adjusts the position slightly to the left */
+}
+
+    .home-text, .home-img {
+        padding: 0 15px; /* Adds some padding on the sides for small screens */
+    }
+    .home h1 {
+    margin-top: 100px; /* Adjust as necessary */
+    /* Other styles here */
+}
+}
