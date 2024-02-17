@@ -30,6 +30,7 @@
         <button class="nav-toggle" aria-label="toggle navigation">
             <span class="hamburger"></span>
         </button>
+
         <nav class="navbar">
             <a href="#">Home</a>
             <a href="blogs.html">Blogs</a>
@@ -146,17 +147,19 @@
             }, delay);
         });
     </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navbar = document.querySelector('.navbar');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navbar = document.querySelector('.navbar');
 
-    navToggle.addEventListener('click', function() {
-        navbar.classList.toggle('active');
-    });
-});
+            navToggle.addEventListener('click', function () {
+                navbar.classList.toggle('active');
+                navToggle.classList.toggle('is-active'); // For visual feedback
+            });
+        });
 
-</script>
+    </script>
+
 
 </body>
 
