@@ -321,3 +321,110 @@ display: flex;
     margin: 10px 0;
     margin-left: 10px; /* Aligns blocks with the text */
 }
+
+/* Toggle Button */
+.nav-toggle {
+    padding: 10px; /* Increase padding for a larger clickable area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-toggle .hamburger, .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+    width: 30px; /* Width of the hamburger icon */
+    height: 2px; /* Height of the hamburger icon */
+    background: black;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+    content: "";
+    position: absolute;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar a {
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Active Navbar Style */
+.navbar.active {
+    display: flex;
+}
+.nav-toggle.is-active .hamburger {
+    background: transparent; /* Example: makes the middle bar disappear */
+}
+
+.nav-toggle.is-active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.is-active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 10px 20px; /* Reduced padding */
+  }
+  .name, .navbar a {
+    font-size: 16px; /* Reduced font size */
+  }
+}
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 60px; /* Further reduce for very small screens */
+  }
+  .sidebar a {
+    padding: 15px; /* Adjust padding */
+    font-size: 12px; /* Further reduce font size */
+  }
+  .main-content {
+    padding-left: 20px; /* Reduce padding to allow more space for content */
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .days, .weekdays {
+    grid-template-columns: repeat(7, 1fr); /* Use 1fr for flexible sizing */
+  }
+  .days div, .weekdays div {
+    height: 40px; /* Reduce height for smaller screens */
+    font-size: 14px; /* Adjust font size accordingly */
+  }
+}
+@media screen and (max-width: 480px) {
+  .legend-sidebar {
+    display: none; /* Optional: hide the legend-sidebar on very small screens */
+  }
+}
+.preloader img {
+  max-width: 100%; /* Ensures image is not larger than its container */
+  height: auto; /* Maintains aspect ratio */
+}
