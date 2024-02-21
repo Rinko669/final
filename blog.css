@@ -428,3 +428,275 @@ display: flex;
   max-width: 100%; /* Ensures image is not larger than its container */
   height: auto; /* Maintains aspect ratio */
 }
+
+/* nav toggle */
+.nav-toggle {
+    padding: 10px; /* Increase padding for a larger clickable area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+.nav-toggle .hamburger, .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+    width: 30px; /* Width of the hamburger icon */
+    height: 2px; /* Height of the hamburger icon */
+    background: black;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+    content: "";
+    position: absolute;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar a {
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Active Navbar Style */
+.navbar.active {
+    display: flex;
+}
+.nav-toggle.is-active .hamburger {
+    background: transparent; /* Example: makes the middle bar disappear */
+}
+
+.nav-toggle.is-active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.is-active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .home-img, .home-text, .section2 .subsection, .library-deployment .images img {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .home {
+    flex-direction: column;
+  }
+
+  .subsection {
+    flex-direction: column;
+  }
+
+  .text, .image {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .navbar a {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  section {
+    padding: 10px;
+  }
+
+  .home h1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  .home h3, .home h5 {
+    font-size: 18px;
+  }
+
+  .library-deployment .images {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column; /* Stacks the text and image vertically on smaller screens */
+        align-items: center; /* Centers the content horizontally */
+    }
+
+    .home-img {
+        width: 100%; /* Adjusts the container width to fit smaller screens */
+        margin: 20px 0; /* Adds some space above and below the image */
+    }
+.home-img img {
+    display: block; /* Makes the image a block-level element */
+    margin: 0 auto; /* Centers the image */
+    position: relative; /* Allows for position adjustments */
+    left: -10px; /* Adjusts the position slightly to the left */
+}
+
+    .home-text, .home-img {
+        padding: 0 15px; /* Adds some padding on the sides for small screens */
+    }
+    .home h1 {
+    margin-top: 100px; /* Adjust as necessary */
+    /* Other styles here */
+}
+}
+
+/* Sidebar styles  month*/
+.sidebar {
+    /* Your existing styles */
+    transition: transform 0.3s ease; /* Smooth transition for sidebar */
+}
+
+/* Hide sidebar by default on smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Style for the sidebar toggle button */
+.sidebar-toggle {
+    display: none; /* Hide by default and will be shown only on smaller screens */
+    position: fixed;
+    z-index: 200; /* Ensure it's above other content */
+    /* Other styling properties for positioning and appearance */
+}
+
+/* Show toggle button on smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+/* calendar responsive */
+@media screen and (max-width: 768px) {
+  .weekdays, .days {
+    grid-template-columns: repeat(7, 1fr); /* Use 1fr for equal distribution */
+  }
+  .weekdays div, .days div {
+    padding: 5px; /* Reduce padding */
+    font-size: 12px; /* Reduce font size for space */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .month {
+    font-size: 20px; /* Smaller font size for the month heading */
+  }
+  .days div a {
+    font-size: 12px; /* Smaller font size for day links */
+  }
+}
+.calendar {
+  width: 100%; /* Use maximum width */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  margin: 0; /* Remove any default margin */
+  padding: 0 10px; /* Add some padding inside */
+}
+
+@media screen and (max-width: 768px) {
+  .calendar {
+    padding: 0 5px; /* Adjust padding for very small screens */
+  }
+}
+@media screen and (max-width: 480px) {
+  .weekdays div {
+    display: none; /* Optionally hide weekday headers */
+  }
+  .weekdays div:nth-child(1), /* Show only the first (e.g., Sun) */
+  .weekdays div:nth-child(7) { /* and last (e.g., Sat) headers */
+    display: block;
+  }
+  .calendar {
+    padding: 0; /* Remove padding */
+  }
+}
+/* Sidebar Toggle Styles with adjusted position */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 80px; /* Adjusted from 20px to 40px */
+    left: 20px;
+    z-index: 101; /* Above sidebar z-index */
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.sidebar-toggle .hamburger, 
+.sidebar-toggle .hamburger::before, 
+.sidebar-toggle .hamburger::after {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-toggle .hamburger::before, 
+.sidebar-toggle .hamburger::after {
+    content: "";
+    position: absolute;
+}
+
+.sidebar-toggle .hamburger::before { top: -8px; }
+.sidebar-toggle .hamburger::after { top: 8px; }
+
+/* Continue with your existing media query adjustments */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        margin-top: 60px;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+/* Adjustments for when sidebar is active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar a {
+    padding-top: 40px; /* Increase top padding to push text down */
+    padding-bottom: 10px; /* Adjust bottom padding as needed */
+    /* Keep other styles the same */
+    margin-top: 60px;
+  }
+}
