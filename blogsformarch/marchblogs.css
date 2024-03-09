@@ -1,0 +1,786 @@
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .main-content {
+      padding-top: 70px; /* Provides space at the top for the navbar */
+      padding-left: 100px; /* Adjust if keeping the legend sidebar on the left */
+          padding-right: 100px; /* Adjust for right-aligned main sidebar in small screens */
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: lightslategray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .name {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .navbar a {
+    position: relative;
+    font-size: 19px;
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+    justify-content: center;
+    margin-right: 80px;
+  }
+
+  .navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+  }
+
+  .navbar a:hover::before {
+    width: 100%;
+  }
+  /*ends*/
+
+  /*start*/
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: #f4f4f4;
+  padding-top: 60px; /* Adjusted to avoid overlap with the fixed header */
+    z-index: 50;
+  display: flex;
+    flex-direction: column;
+    justify-content: start; /* Align items to start to keep the links at the top */
+  }
+
+  .sidebar a {
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    justify-content: center; /* Horizontally centers the content */
+    color: black;
+    padding: 30px; /* Adjust padding as needed */
+    text-decoration: none;
+    font-size: 18px;
+    height: 5s0px; /* Adjust height as needed to ensure enough space for centering */
+  }
+  .sidebar a:hover {
+    background-color: #ddd;
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+    .sidebar {
+      width: 100px;
+      padding-top: 20px;
+    }
+
+    .sidebar a { font-size: 14px; }
+
+  }
+  @media screen and (max-width: 600px) {
+      .sidebar, .right-sidebar {
+          width: 100px;
+      }
+
+      body {
+          padding-left: 100px;
+          padding-right: 100px;
+      }
+  }
+
+
+  .sidebar a.active {
+      color: white; /* Text color */
+      background-color: red; /* Background color */
+  }
+
+  .sidebar a:not(.active):hover {
+      background-color: #ddd; /* Hover effect for non-active links */
+  }
+  /*ends*/
+
+
+  /* Grid layout for days with increased cell size for a larger appearance */
+  .days {
+      display: grid;
+      grid-template-columns: repeat(7, 60px); /* Increased cell size */
+      gap: 5px; /* Increased gap for better spacing */
+  }
+
+  /* Adjustments to the .calendar container for centering and aesthetics */
+  .calendar {
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      width: fit-content; /* Ensures it adjusts to content size while allowing centering */
+      display: block; /* Use block display for auto margins to work */
+  }
+
+  /* Enhancements to the month label for better visibility */
+  .month {
+      text-align: center;
+      margin-bottom: 20px; /* Increased spacing */
+      font-size: 28px; /* Larger font size */
+      font-weight: bold;
+  }
+
+  /* Unified grid layout for weekdays and days for consistent alignment */
+  .weekdays, .days {
+      display: grid;
+      grid-template-columns: repeat(7, 60px); /* Consistent with days for alignment */
+      justify-content: center;
+      gap: 8px; /* Consistent with days for alignment */
+  }
+
+  /* Styling for individual day cells and weekday labels */
+  .weekdays div, .days div {
+      border: 1px solid #ddd;
+      width: 60px; /* Increased for larger cells */
+      height: 60px; /* Increased for larger cells */
+      line-height: 60px; /* Adjusted for vertical centering */
+      text-align: center;
+      font-size: 16px; /* Increased font size for better readability */
+  }
+
+  /* Hiding borders for initial empty divs used for alignment at the start of the month */
+  .days div:nth-child(-n+4) {
+      border: none; /* Hide border */
+  }
+
+  .days div a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 40px; /* Adjust based on your day cell height */
+      text-align: center;
+      text-decoration: none; /* Removes underline from links */
+      color: inherit; /* Inherits text color from parent */
+  }
+
+  .days div a.active {
+      background-color: lightblue; /* Background color for active links */
+  }
+  .days .active1 {
+      background-color: red; /* Background color for active links */
+  }
+  .days .active2 {
+      background-color: greenyellow; /* Background color for active links */
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+      .main-content {
+          margin-left: 0; /* Adjusting sidebar overlap */
+      }
+
+      /* Adjusting grid for smaller screens */
+      .calendar, .weekdays, .days {
+          grid-template-columns: repeat(7, 50px); /* Slightly smaller cells for small screens */
+      }
+
+      .weekdays div, .days div {
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          font-size: 14px; /* Adjusted font size for smaller cells */
+      }
+  }
+  /* Optional: Add hover effect for all links */
+  .days div a:hover {
+      background-color: #e0f0ff; /* Lighter shade for hover, adjust as needed */
+  }
+
+  /* legend */
+  .legend {
+      margin-top: 20px; /* Adjust as needed */
+      padding: 10px;
+      background-color: #f9f9f9; /* Similar to the calendar for consistency */
+      border-radius: 8px;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .legend h2 {
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .legend-block {
+      width: 50px; /* Adjust width as necessary */
+      height: 20px; /* Adjust height as necessary */
+      background-color: lightblue;
+      margin-bottom: 10px;
+  }
+
+  .legend-block1{
+      width: 50px; /* Adjust width as necessary */
+      height: 20px; /* Adjust height as necessary */
+      background-color: red;
+      margin-bottom: 10px;
+  }
+  .legend-block2{
+      width: 50px; /* Adjust width as necessary */
+      height: 20px; /* Adjust height as necessary */
+      background-color: greenyellow;
+      margin-bottom: 10px;
+  }
+
+
+  /*footer */
+  .footer {
+    background-color: lightgray; /* Light grey background */
+    color: black; /* Dark grey text */
+    text-align: center; /* Centers the text */
+    padding: 30px 0; /* 20px padding at the top and bottom */
+    margin-top: 40px; /* Adds space between the content and the footer */
+  }
+  /*footer end */
+
+  .footer a {
+    color: #007bff; /* Bootstrap default link color */
+    text-decoration: none; /* No underline */
+    left: 20px;
+  }
+
+  .footer p {
+      margin: 5px 0; /* Adds a little space between paragraphs */
+      font-size: 16px; /* Adjust font size as needed */
+  }
+
+  .footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  /*ends*/
+
+  /* Pre-loader Styles */
+          .preloader {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 9999;
+              background-color: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+    .disabled-link {
+      background-color: lightgray; /* Makes the link color gray to appear disabled */
+      cursor: default; /* Changes the cursor to the default to avoid the pointer hand */
+      text-decoration: none; /* Removes underline to further imply it's not clickable */
+      pointer-events: none; /* Prevents all click actions */
+  }
+
+
+
+  .legend-sidebar {
+      position: fixed;
+      right: 200px; /* Adjust this value based on the width of your original sidebar */
+      top: 0;
+      width: 200px; /* Adjust based on your preference */
+      height: 100%;
+      background: #f4f4f4;
+      padding-top: 80px;
+      z-index: 50;
+      overflow: auto; /* Enables scrolling if the content is taller than the screen */
+      right: 0;
+      top: 0;
+  }
+
+  .legend-sidebar h2, .legend-sidebar p {
+      padding: 0 30px; /* Adds some padding around text */
+  }
+
+  .legend-block, .legend-block1, .legend-block2 {
+      width: 30px; /* Adjust based on your preference */
+      height: 20px;
+      margin: 10px 0;
+      margin-left: 10px; /* Aligns blocks with the text */
+  }
+
+  /* Toggle Button */
+  .nav-toggle {
+      padding: 10px; /* Increase padding for a larger clickable area */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+  }
+
+  .nav-toggle .hamburger, .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+      width: 30px; /* Width of the hamburger icon */
+      height: 2px; /* Height of the hamburger icon */
+      background: black;
+      display: block;
+      position: relative;
+      transition: transform 0.3s ease;
+  }
+
+  .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+      content: "";
+      position: absolute;
+  }
+
+  .nav-toggle .hamburger::before { top: -8px; }
+  .nav-toggle .hamburger::after { top: 8px; }
+
+
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+      .header {
+          flex-wrap: wrap;
+          padding: 20px;
+      }
+      .navbar {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+      }
+      .navbar a {
+          padding: 10px;
+          margin: 5px 0;
+          text-align: center;
+      }
+      .nav-toggle {
+          display: block;
+      }
+  }
+
+  /* Active Navbar Style */
+  .navbar.active {
+      display: flex;
+  }
+  .nav-toggle.is-active .hamburger {
+      background: transparent; /* Example: makes the middle bar disappear */
+  }
+
+  .nav-toggle.is-active .hamburger::before {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle.is-active .hamburger::after {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 10px 20px; /* Reduced padding */
+    }
+    .name, .navbar a {
+      font-size: 16px; /* Reduced font size */
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .sidebar {
+      width: 60px; /* Further reduce for very small screens */
+    }
+    .sidebar a {
+      padding: 15px; /* Adjust padding */
+      font-size: 12px; /* Further reduce font size */
+    }
+    .main-content {
+      padding-left: 20px; /* Reduce padding to allow more space for content */
+      padding-right: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .days, .weekdays {
+      grid-template-columns: repeat(7, 1fr); /* Use 1fr for flexible sizing */
+    }
+    .days div, .weekdays div {
+      height: 40px; /* Reduce height for smaller screens */
+      font-size: 14px; /* Adjust font size accordingly */
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .legend-sidebar {
+      display: none; /* Optional: hide the legend-sidebar on very small screens */
+    }
+  }
+  .preloader img {
+    max-width: 100%; /* Ensures image is not larger than its container */
+    height: auto; /* Maintains aspect ratio */
+  }
+
+  /* nav toggle */
+  .nav-toggle {
+      padding: 10px; /* Increase padding for a larger clickable area */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+  }
+  .nav-toggle .hamburger, .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+      width: 30px; /* Width of the hamburger icon */
+      height: 2px; /* Height of the hamburger icon */
+      background: black;
+      display: block;
+      position: relative;
+      transition: transform 0.3s ease;
+  }
+
+  .nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
+      content: "";
+      position: absolute;
+  }
+
+  .nav-toggle .hamburger::before { top: -8px; }
+  .nav-toggle .hamburger::after { top: 8px; }
+
+
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+      .header {
+          flex-wrap: wrap;
+          padding: 20px;
+      }
+      .navbar {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+      }
+      .navbar a {
+          padding: 10px;
+          margin: 5px 0;
+          text-align: center;
+      }
+      .nav-toggle {
+          display: block;
+      }
+  }
+
+  /* Active Navbar Style */
+  .navbar.active {
+      display: flex;
+  }
+  .nav-toggle.is-active .hamburger {
+      background: transparent; /* Example: makes the middle bar disappear */
+  }
+
+  .nav-toggle.is-active .hamburger::before {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle.is-active .hamburger::after {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    .home-img, .home-text, .section2 .subsection, .library-deployment .images img {
+      width: 100%;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .home {
+      flex-direction: column;
+    }
+
+    .subsection {
+      flex-direction: column;
+    }
+
+    .text, .image {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    .header {
+      padding: 20px;
+    }
+
+    .navbar a {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    section {
+      padding: 10px;
+    }
+
+    .home h1 {
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    .home h3, .home h5 {
+      font-size: 18px;
+    }
+
+    .library-deployment .images {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+      .home {
+          flex-direction: column; /* Stacks the text and image vertically on smaller screens */
+          align-items: center; /* Centers the content horizontally */
+      }
+
+      .home-img {
+          width: 100%; /* Adjusts the container width to fit smaller screens */
+          margin: 20px 0; /* Adds some space above and below the image */
+      }
+  .home-img img {
+      display: block; /* Makes the image a block-level element */
+      margin: 0 auto; /* Centers the image */
+      position: relative; /* Allows for position adjustments */
+      left: -10px; /* Adjusts the position slightly to the left */
+  }
+
+      .home-text, .home-img {
+          padding: 0 15px; /* Adds some padding on the sides for small screens */
+      }
+      .home h1 {
+      margin-top: 100px; /* Adjust as necessary */
+      /* Other styles here */
+  }
+  }
+
+  /* Sidebar styles  month*/
+  .sidebar {
+      /* Your existing styles */
+      transition: transform 0.3s ease; /* Smooth transition for sidebar */
+  }
+
+  /* Hide sidebar by default on smaller screens */
+  @media screen and (max-width: 768px) {
+      .sidebar {
+          transform: translateX(-100%);
+      }
+  }
+
+  /* Show sidebar when active */
+  .sidebar.active {
+      transform: translateX(0);
+  }
+
+  /* Style for the sidebar toggle button */
+  .sidebar-toggle {
+      display: none; /* Hide by default and will be shown only on smaller screens */
+      position: fixed;
+      z-index: 200; /* Ensure it's above other content */
+      /* Other styling properties for positioning and appearance */
+  }
+
+  /* Show toggle button on smaller screens */
+  @media screen and (max-width: 768px) {
+      .sidebar-toggle {
+          display: block;
+      }
+  }
+
+  /* calendar responsive */
+  @media screen and (max-width: 768px) {
+    .weekdays, .days {
+      grid-template-columns: repeat(7, 1fr); /* Use 1fr for equal distribution */
+    }
+    .weekdays div, .days div {
+      padding: 5px; /* Reduce padding */
+      font-size: 12px; /* Reduce font size for space */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .month {
+      font-size: 20px; /* Smaller font size for the month heading */
+    }
+    .days div a {
+      font-size: 12px; /* Smaller font size for day links */
+    }
+  }
+  .calendar {
+    width: 100%; /* Use maximum width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin: 0; /* Remove any default margin */
+    padding: 0 10px; /* Add some padding inside */
+  }
+
+  @media screen and (max-width: 768px) {
+    .calendar {
+      padding: 0 5px; /* Adjust padding for very small screens */
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .weekdays div {
+      display: none; /* Optionally hide weekday headers */
+    }
+    .weekdays div:nth-child(1), /* Show only the first (e.g., Sun) */
+    .weekdays div:nth-child(7) { /* and last (e.g., Sat) headers */
+      display: block;
+    }
+    .calendar {
+      padding: 0; /* Remove padding */
+    }
+  }
+  /* Sidebar Toggle Styles with adjusted position */
+  .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 80px; /* Adjusted from 20px to 40px */
+      left: 20px;
+      z-index: 101; /* Above sidebar z-index */
+      cursor: pointer;
+      background: none;
+      border: none;
+  }
+
+  .sidebar-toggle .hamburger, 
+  .sidebar-toggle .hamburger::before, 
+  .sidebar-toggle .hamburger::after {
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      display: block;
+      position: relative;
+      transition: transform 0.3s ease;
+  }
+
+  .sidebar-toggle .hamburger::before, 
+  .sidebar-toggle .hamburger::after {
+      content: "";
+      position: absolute;
+  }
+
+  .sidebar-toggle .hamburger::before { top: -8px; }
+  .sidebar-toggle .hamburger::after { top: 8px; }
+
+  /* Continue with your existing media query adjustments */
+  @media screen and (max-width: 768px) {
+      .sidebar {
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+          margin-top: 60px;
+      }
+      .sidebar-toggle {
+          display: block;
+      }
+  }
+
+  /* Adjustments for when sidebar is active */
+  .sidebar.active {
+      transform: translateX(0);
+  }
+
+  @media screen and (max-width: 768px) {
+    .sidebar a {
+      padding-top: 40px; /* Increase top padding to push text down */
+      padding-bottom: 10px; /* Adjust bottom padding as needed */
+      /* Keep other styles the same */
+      margin-top: 60px;
+    }
+  }
+
+
+/* warning css */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.warning-notification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffcc00;
+  color: #000;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+   /* Adjust the width as needed */
+  max-width: 600px;
+}
+
+.warning-text-container p {
+  margin: 10px 0; /* Simplify margin */
+  font-size: 16px;
+}
+
+.warning-notification img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.warning-notification .close-warning {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin for spacing */
+}
+
+.box {
+  background: #0d0e0e;
+  margin: 5% auto;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  border-radius: 5px ;
+  position: relative;
+  box-shadow: 0 15px 15px -15px #2C3E50;
+}
+
+
+
+
+button {
+  font-family: 'Barlow';
+  border: none;
+  outline:none;
+  width :300px;
+     height: 50px;
+     font-size: 20px;
+     text-align: center;   
+     color: rgba(255,255,255,0.9);
+     border-radius: 10px;
+  background-image: linear-gradient(325deg, rgba(34,67,195,1) 72%, rgba(253,187,45,1) 100%);
+}
+
+.note {
+  margin-right: 300px; /* Adjust the margin as needed */
+  align-items: -60px;
+  margin-bottom: -70px;
+  font-size: 30px;
+  text-decoration: underline;
+}
