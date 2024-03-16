@@ -20,15 +20,17 @@
     </div>
 
     <!-- modal-->
-       <div id="warningModal" class="modal">
+    <div id="warningModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="warning-notification">'
                 <p class="note"> TAKE NOTE!!!!!</p>
                 <img src="./photos/Minori_Portrait.webp" alt="Warning" style="width:80px; height: auto;">
                 <div class="warning-text-container">
-                    <p>This website is still in development, so it is not responsive yet. Please use desktop mode for a
-                        better viewing experience. Thank you.</p>
+                    <div class="development-message" style="font-family: 'Times New Roman', Times, serif;">
+                        <p>This website is still in development, so it is not responsive yet. Please use desktop mode
+                            for a better viewing experience. Thank you.</p>
+                    </div>
                     <button class="close-warning">OK</button>
                 </div>
             </div>
@@ -181,8 +183,8 @@
             });
         });
     </script>
-    
-    
+
+
     <script>window.addEventListener('load', function () {
             const delay = 3000; // 3 seconds
 
