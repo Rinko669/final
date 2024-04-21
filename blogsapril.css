@@ -311,3 +311,13 @@ body {
             justify-content: center;
             align-items: center;
         }
+        
+  .days div a.active {
+      background-color: lightblue; /* Background color for active links */
+  }
+  .days .active1 {
+      background-color: red; /* Background color for active links */
+  }
+  .days .active2 {
+      background-color: greenyellow; /* Background color for active links */
+  }

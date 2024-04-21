@@ -53,6 +53,7 @@
             <a href="#">More</a>
         </nav>
         <a href="#" class="name">OJT BLOGS</a>
+            
     </header>
     <!--navbar ends-->
 
@@ -222,6 +223,22 @@
 
         // Set interval to change image every 5 seconds (5000 milliseconds)
         setInterval(changeImage, 3000);
+
+        function updateTime() {
+  var now = new Date();
+  var datetimeElement = document.getElementById('datetime');
+  var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  var timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+  var dateString = now.toLocaleDateString('en-US', dateOptions);
+  var timeString = now.toLocaleTimeString('en-US', timeOptions);
+  datetimeElement.innerHTML = dateString + ' ' + timeString;
+}
+
+// Update time initially
+updateTime();
+
+// Update time every second
+setInterval(updateTime, 1000);
     </script>
 
 </body>
